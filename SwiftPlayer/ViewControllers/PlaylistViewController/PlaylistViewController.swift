@@ -34,6 +34,11 @@ class PlaylistViewController: NSViewController {
         }
         
         outlineView.register(forDraggedTypes: [NSPasteboardTypeString])
+        
+        // menu to delete playlists
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(deletePlaylist), keyEquivalent: "d"))
+        outlineView.menu = menu
     }
     
     // MARK: - Actions
@@ -53,6 +58,24 @@ class PlaylistViewController: NSViewController {
     
     func isHeader(item: Any) -> Bool {
         return item is String
+    }
+    
+    func deletePlaylist(sender: AnyObject) {
+        print(outlineView.clickedRow)
+        
+        let playlistsMutableArray = NSMutableArray(array: playlists)
+        let toBeDeletedPlaylist = playlistsMutableArray.object(at: outlineView.clickedRow - 1) as? Playlist
+        playlistsMutableArray.removeObject(at: outlineView.clickedRow - 1)
+        
+        if let mutableArray = playlistsMutableArray as AnyObject as? [Playlist] {
+            playlists = mutableArray
+            outlineView.reloadData()
+        }
+        
+        if let playlist = toBeDeletedPlaylist {
+            playlist.delete()
+        }
+        
     }
 }
 

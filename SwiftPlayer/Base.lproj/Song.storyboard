@@ -178,7 +178,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="RDi-Zw-U3j" viewBased="YES" id="liI-6c-KEu">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="RDi-Zw-U3j" viewBased="YES" id="liI-6c-KEu">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="377"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>

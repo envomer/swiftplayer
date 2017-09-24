@@ -39,4 +39,10 @@ class Song: Object {
         return ["lengthText"]
     }
     
+    func delete() {
+        try! realm?.write {
+            realm?.delete(self)
+        }
+    }
+    
 }

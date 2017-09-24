@@ -20,38 +20,44 @@ class SongListViewController: NSViewController {
         
         tableView.dataSource = self
         
+        // check if realm database has any new columns -> migrate
         RealmMigrationManager.migrate()
         
         // Migrate only on first launch.
         let defaults = UserDefaults.standard
         if defaults.bool(forKey: "APP_LAUNCHED") == false {
             let soManager = SongManager()
-            try! soManager.importSongs()
+            try! _ = soManager.importSongs()
             defaults.set(true, forKey: "APP_LAUNCHED")
         }
         
+        // get songs from realm database
         let realm = try! Realm()
         let result = realm.objects(Song.self)
-        
         songs = result.map{song in
             return song
         }
         
+        // observer notifications
         let nc = NotificationCenter.default
-        
         nc.addObserver(
             self,
             selector: #selector(changeSong),
             name: Notification.Name(Constants.Notifications.ChangeSong),
             object: nil
         )
-        
         nc.addObserver(
             self,
             selector: #selector(switchPlaylist),
             name: Notification.Name(Constants.Notifications.SwitchPlaylist),
             object: nil
         )
+        
+        // allow song deletions
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(deleteSongs), keyEquivalent: "d"))
+        tableView.menu = menu
+//        tableView.allowsMultipleSelection = true // can also be done in storyboard
     }
     
     @IBAction func doubleClick(_ sender: NSTableView) {
@@ -85,6 +91,26 @@ class SongListViewController: NSViewController {
         
         songs = playlist.songs.map { song in return song }
         tableView.reloadData()
+    }
+    
+    // Delete songs usong right mouse click
+    func deleteSongs(sender: AnyObject) {
+        let songsMutableArray = NSMutableArray(array: songs)
+        let toBeDeletedSongs = songsMutableArray.objects(at: tableView.selectedRowIndexes) as? [Song]
+        songsMutableArray.removeObjects(at: tableView.selectedRowIndexes)
+        
+        //????
+        if let mutableArray = songsMutableArray as AnyObject as? [Song] {
+            songs = mutableArray
+            tableView.reloadData()
+        }
+        
+        
+        if let songs = toBeDeletedSongs {
+            for song in songs {
+                song.delete()
+            }
+        }
     }
 }
 
