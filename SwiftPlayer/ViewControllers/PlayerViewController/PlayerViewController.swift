@@ -17,6 +17,7 @@ class PlayerViewController: NSViewController {
     @IBOutlet weak var timeLabel: NSTextField!
     @IBOutlet weak var shuffleButton: NSButton!
     @IBOutlet weak var replayButton: NSButton!
+    @IBOutlet weak var songTitleLabel: NSTextField!
     
     var songTimer: Timer?
     var songProgress: Double = 0
@@ -81,9 +82,6 @@ class PlayerViewController: NSViewController {
     // MARK: - Helpers
     
     func startPlaying(notification: Notification) {
-//        print("received", notification)
-        
-//        guard let song = notification.userInfo?[Constants.NotificationUserInfos.Song] as? Song else { return }
         songTimer = Timer.scheduledTimer(
             timeInterval: TimeInterval(1),
             target: self,
@@ -104,6 +102,10 @@ class PlayerViewController: NSViewController {
         songProgress = 0
         songTimer?.invalidate()
         songTimer = nil
+        
+        guard let song = notification.userInfo?[Constants.NotificationUserInfos.Song] as? Song else { return }
+        
+        songTitleLabel.stringValue = song.title
     }
     
     // MARK: - Timer
