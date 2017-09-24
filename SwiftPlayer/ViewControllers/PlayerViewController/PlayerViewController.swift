@@ -55,12 +55,6 @@ class PlayerViewController: NSViewController {
     
     @IBAction func play(_ sender: NSButton) {
         manager.play()
-        
-        if manager.isPlaying {
-            playButton.image =  NSImage(named: "Pause")
-        } else {
-            playButton.image = NSImage(named: "Play")
-        }
     }
     
     @IBAction func rewind(_ sender: NSButton) {
@@ -89,11 +83,18 @@ class PlayerViewController: NSViewController {
             userInfo: nil,
             repeats: true
         )
+        
+        songProgress = (manager.player?.currentTime)!
+        formatTimeLabel()
+        
+        playButton.image =  NSImage(named: "Pause")
     }
     
     func pausePlaying(notification: Notification) {
         songTimer?.invalidate()
         songTimer = nil
+        
+        playButton.image = NSImage(named: "Play")
     }
     
     func changeSong(notification: Notification) {
@@ -109,8 +110,13 @@ class PlayerViewController: NSViewController {
     }
     
     // MARK: - Timer
-    func updateProgress() {
+    
+    func updateProgress(value: Double) {
         songProgress += 1
+        formatTimeLabel()
+    }
+    
+    func formatTimeLabel() {
         let formatter = DateComponentsFormatter()
         
         formatter.allowedUnits = [.minute, .second]

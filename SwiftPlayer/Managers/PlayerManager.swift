@@ -110,7 +110,7 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
             currentSong = currentPlaylist[0]
         }
         
-        print("playing", currentSong?.title)
+        print("playing", currentSong?.title, player?.currentTime)
         
         player?.play()
         
