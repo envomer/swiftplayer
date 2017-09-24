@@ -30,7 +30,7 @@
         <!--Playlist-->
         <scene sceneID="eJD-nZ-jSF">
             <objects>
-                <viewController id="EMV-oV-ky8" userLabel="Playlist" sceneMemberID="viewController">
+                <viewController id="EMV-oV-ky8" userLabel="Playlist" customClass="PlaylistViewController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="4CP-0D-oex">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -131,6 +131,9 @@
                             <constraint firstItem="DNI-g6-5Bf" firstAttribute="top" secondItem="4CP-0D-oex" secondAttribute="top" id="hBg-SW-zkt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outlineView" destination="fRb-CG-Au9" id="uqO-Oz-uHz"/>
+                    </connections>
                 </viewController>
                 <customObject id="IAZ-ar-yzQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,6 +23,7 @@
 		F6C285D41F781A5A00C103BB /* CollectionTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D31F781A5A00C103BB /* CollectionTypeExtensions.swift */; };
 		F6C285D61F781AE100C103BB /* MutableCollectionTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */; };
 		F6C285D81F782CB700C103BB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D71F782CB700C103BB /* Constants.swift */; };
+		F6C285DB1F78417E00C103BB /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F6C285D31F781A5A00C103BB /* CollectionTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTypeExtensions.swift; path = Extensions/CollectionTypeExtensions.swift; sourceTree = "<group>"; };
 		F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MutableCollectionTypeExtensions.swift; path = Extensions/MutableCollectionTypeExtensions.swift; sourceTree = "<group>"; };
 		F6C285D71F782CB700C103BB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
+		F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistViewController.swift; path = ViewControllers/PlaylistViewController/PlaylistViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		F6C285B81F77C85100C103BB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6C285D91F78414600C103BB /* PlaylistViewController */,
 				F6C285CB1F77F5A300C103BB /* SongListViewController */,
 				F6C285C21F77E2BD00C103BB /* PlayerViewController */,
 			);
@@ -181,6 +184,14 @@
 				F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		F6C285D91F78414600C103BB /* PlaylistViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */,
+			);
+			name = PlaylistViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 				F6C285BE1F77C8DD00C103BB /* Song.swift in Sources */,
 				F6C285D11F78008F00C103BB /* RealmMigrationManager.swift in Sources */,
 				F6C285D61F781AE100C103BB /* MutableCollectionTypeExtensions.swift in Sources */,
+				F6C285DB1F78417E00C103BB /* PlaylistViewController.swift in Sources */,
 				F6C285C41F77E2FB00C103BB /* PlayerViewController.swift in Sources */,
 				F608FDDF1F77C5FA0067C010 /* ViewController.swift in Sources */,
 				F608FDDD1F77C5FA0067C010 /* AppDelegate.swift in Sources */,

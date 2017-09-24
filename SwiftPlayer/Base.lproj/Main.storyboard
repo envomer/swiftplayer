@@ -709,7 +709,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N0J-dK-VZ2" userLabel="SongInformation">
-                                <rect key="frame" x="20" y="13" width="95" height="17"/>
+                                <rect key="frame" x="20" y="13" width="245" height="17"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-NG-Lxd">
                                         <rect key="frame" x="-2" y="0.0" width="44" height="17"/>
@@ -723,7 +723,10 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC3-NA-x2x" userLabel="SongTitle Label">
-                                        <rect key="frame" x="43" y="2" width="54" height="13"/>
+                                        <rect key="frame" x="43" y="2" width="204" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="cmw-Vf-QJO"/>
+                                        </constraints>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="ZKh-qt-lA5">
                                             <font key="font" metaFont="system" size="10"/>
                                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
