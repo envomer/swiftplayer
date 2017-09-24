@@ -34,6 +34,15 @@ class SongListViewController: NSViewController {
         songs = result.map{song in
             return song
         }
+        
+        let nc = NotificationCenter.default
+        
+        nc.addObserver(
+            self,
+            selector: #selector(changeSong),
+            name: Notification.Name(Constants.Notifications.ChangeSong),
+            object: nil
+        )
     }
     
     @IBAction func doubleClick(_ sender: NSTableView) {
@@ -46,6 +55,19 @@ class SongListViewController: NSViewController {
             manager.isShuffle = manager.isShuffle ? true : false
             manager.stop()
             manager.play()
+        }
+    }
+    
+    // MARK: - Notification
+    func changeSong(notification: Notification) {
+        guard let song = notification.userInfo?[Constants.NotificationUserInfos.Song] as? Song else { return }
+        
+        let index = songs.index(of: song)
+        
+        if let index = index {
+            let set = IndexSet(integer: index)
+            tableView.selectRowIndexes(set, byExtendingSelection: false)
+            tableView.scrollRowToVisible(index)
         }
     }
     
