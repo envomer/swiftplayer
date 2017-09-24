@@ -30,6 +30,15 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
                     
                     player?.volume = volume
                 }
+                
+                NotificationCenter.default.post(
+                    name: Notification.Name(Constants.Notifications.ChangeSong),
+                    object: nil,
+                    userInfo: [
+                        Constants.NotificationUserInfos.Song: currentSong
+                    ]
+                )
+
             } else {
                 stop()
                 player = nil
@@ -116,6 +125,14 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
     
     func pause() {
         player?.pause()
+        
+        NotificationCenter.default.post(
+            name: Notification.Name(Constants.Notifications.PausePlaying),
+            object: nil,
+            userInfo: [
+                Constants.NotificationUserInfos.Song: currentSong!
+            ]
+        )
     }
     
     func next() {

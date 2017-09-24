@@ -10,9 +10,10 @@ import Foundation
 
 struct  Constants {
     struct Notifications {
+        static let ChangeSong = "changeSong"
         static let StartPlaying = "startPlaying"
         static let StopPlaying = "stopPlaying"
-        static let PausePlying = "pausePlaying"
+        static let PausePlaying = "pausePlaying"
         static let NextSong = "nextSong"
         static let PreviousSong = "previousSong"
     }

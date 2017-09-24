@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftPlayer/ViewControllers/PlayerViewController/PlayerViewController.swift"
-            timestampString = "527970588.049468"
+            timestampString = "527971634.039161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "repeatPlaylist(_:)"
             landmarkType = "7">
          </BreakpointContent>
