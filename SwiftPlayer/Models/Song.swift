@@ -17,6 +17,8 @@ class Song: Object {
     dynamic var title: String = ""
     dynamic var location: String = ""
     dynamic var length: Double = 0
+    dynamic var artist: String = ""
+    dynamic var playCount: Int = 0
 
     dynamic var lengthText: String {
         get {
@@ -28,6 +30,7 @@ class Song: Object {
         self.init()
         
         self.title = item.title
+        self.artist = item.artist?.name ?? ""
         self.location = item.location?.path ?? ""
         self.length = TimeInterval(item.totalTime) / 1000.0
     }

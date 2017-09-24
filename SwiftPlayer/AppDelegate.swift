@@ -15,9 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        
-        let soManager = SongManager()
-        try! soManager.importSongs()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -19,6 +19,7 @@
 		F6C285C81F77E94E00C103BB /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285C71F77E94E00C103BB /* SongManager.swift */; };
 		F6C285CA1F77EAB000C103BB /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */; };
 		F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285CC1F77F5C900C103BB /* SongListViewController.swift */; };
+		F6C285D11F78008F00C103BB /* RealmMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D01F78008F00C103BB /* RealmMigrationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F6C285C71F77E94E00C103BB /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongManager.swift; path = Managers/SongManager.swift; sourceTree = "<group>"; };
 		F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
 		F6C285CC1F77F5C900C103BB /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongListViewController.swift; path = ViewControllers/SongListViewController/SongListViewController.swift; sourceTree = "<group>"; };
+		F6C285D01F78008F00C103BB /* RealmMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			children = (
 				F6C285C51F77E68C00C103BB /* PlayerManager.swift */,
 				F6C285C71F77E94E00C103BB /* SongManager.swift */,
+				F6C285D01F78008F00C103BB /* RealmMigrationManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				F6C285C81F77E94E00C103BB /* SongManager.swift in Sources */,
 				F6C285C61F77E68C00C103BB /* PlayerManager.swift in Sources */,
 				F6C285BE1F77C8DD00C103BB /* Song.swift in Sources */,
+				F6C285D11F78008F00C103BB /* RealmMigrationManager.swift in Sources */,
 				F6C285C41F77E2FB00C103BB /* PlayerViewController.swift in Sources */,
 				F608FDDF1F77C5FA0067C010 /* ViewController.swift in Sources */,
 				F608FDDD1F77C5FA0067C010 /* AppDelegate.swift in Sources */,
