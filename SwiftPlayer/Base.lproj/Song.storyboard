@@ -79,7 +79,7 @@
                                                                 <outlet property="textField" destination="cUh-q4-5Jo" id="Xbi-5H-AmI"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="DataCell" id="eJl-rI-M8e">
+                                                        <tableCellView identifier="DataCell" id="eJl-rI-M8e" customClass="CustomTableCellView" customModule="SwiftPlayer" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="17" width="197" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -89,17 +89,30 @@
                                                                     <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="Music" id="pob-eh-V5R"/>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7js-d8-raM">
-                                                                    <rect key="frame" x="25" y="0.0" width="172" height="17"/>
+                                                                    <rect key="frame" x="25" y="0.0" width="144" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Songs" id="iZf-Fo-jbN">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Songs" id="iZf-Fo-jbN">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfN-yk-TJK">
+                                                                    <rect key="frame" x="176" y="2" width="18" height="13"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(0)" id="Xsc-BD-DUM">
+                                                                        <font key="font" metaFont="system" size="10"/>
+                                                                        <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="BfN-yk-TJK" firstAttribute="centerY" secondItem="eJl-rI-M8e" secondAttribute="centerY" id="aAj-uy-akW"/>
+                                                                <constraint firstAttribute="trailing" secondItem="BfN-yk-TJK" secondAttribute="trailing" constant="5" id="gyl-a1-VyZ"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="imageView" destination="DCz-YG-llz" id="hwz-uL-KEc"/>
+                                                                <outlet property="songCount" destination="BfN-yk-TJK" id="dBB-m3-BYR"/>
                                                                 <outlet property="textField" destination="7js-d8-raM" id="gM3-Hb-1CL"/>
                                                             </connections>
                                                         </tableCellView>

@@ -25,6 +25,7 @@
 		F6C285D81F782CB700C103BB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D71F782CB700C103BB /* Constants.swift */; };
 		F6C285DB1F78417E00C103BB /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */; };
 		F6C285DD1F78478400C103BB /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DC1F78478400C103BB /* Playlist.swift */; };
+		F6C285DF1F785B7900C103BB /* CustomTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DE1F785B7900C103BB /* CustomTableCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F6C285D71F782CB700C103BB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
 		F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistViewController.swift; path = ViewControllers/PlaylistViewController/PlaylistViewController.swift; sourceTree = "<group>"; };
 		F6C285DC1F78478400C103BB /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
+		F6C285DE1F785B7900C103BB /* CustomTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableCellView.swift; path = ViewControllers/PlaylistViewController/CustomTableCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */,
+				F6C285DE1F785B7900C103BB /* CustomTableCellView.swift */,
 			);
 			name = PlaylistViewController;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C285DF1F785B7900C103BB /* CustomTableCellView.swift in Sources */,
 				F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */,
 				F6C285DD1F78478400C103BB /* Playlist.swift in Sources */,
 				F6C285D81F782CB700C103BB /* Constants.swift in Sources */,

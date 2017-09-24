@@ -115,21 +115,24 @@ extension PlaylistViewController: NSOutlineViewDataSource {
         }
         return false
     }
-}
-
-extension PlaylistViewController: NSOutlineViewDelegate {
+    
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         if isHeader(item: item) {
             return outlineView.make(withIdentifier: "HeaderCell", owner: self)
         }
         
-        let view = outlineView.make(withIdentifier: "DataCell", owner: self) as? NSTableCellView
+        let view = outlineView.make(withIdentifier: "DataCell", owner: self) as? CustomTableCellView
         if let playlist = item as? Playlist {
-            view?.textField?.stringValue = "\(playlist.name) (\(playlist.songs.count))"
+            view?.textField?.stringValue = "\(playlist.name)"
+            view?.textField?.delegate = self
+            view?.songCount.stringValue = "\((playlist.songs.count))"
         }
         
         return view
     }
+}
+
+extension PlaylistViewController: NSOutlineViewDelegate {
     
     func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
         return !isHeader(item: item)
@@ -152,4 +155,21 @@ extension PlaylistViewController: NSOutlineViewDelegate {
             ]
         )
     }
+}
+
+extension PlaylistViewController: NSTextFieldDelegate {
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField {
+            print(textField.stringValue)
+            let row = outlineView.row(for: textField)
+            let playlist = playlists[row - 1]
+            
+            let realm = try! Realm()
+            try! realm.write {
+                playlist.name = textField.stringValue
+            }
+        }
+    }
+    
 }
