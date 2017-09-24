@@ -7,9 +7,16 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class PlaylistViewController: NSViewController {
-    var strings = ["P1", "P2", "P3"]
+    var playlists = [Playlist]() {
+        didSet {
+            outlineView.reloadData()
+            outlineView.expandItem(nil, expandChildren: true)
+        }
+    }
+    
     @IBOutlet weak var outlineView: NSOutlineView!
 
     override func viewDidLoad() {
@@ -18,12 +25,34 @@ class PlaylistViewController: NSViewController {
         
         outlineView.dataSource = self
         outlineView.delegate = self
+        
+        RealmMigrationManager.migrate()
+        
+        let realm = try! Realm()
+        playlists = realm.objects(Playlist.self).map {playlist in
+            return playlist
+        }
+        
+        outlineView.register(forDraggedTypes: [NSPasteboardTypeString])
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func addPlaylist(_ sender: NSButtonCell) {
+        let playlist = Playlist()
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(playlist)
+        }
+        
+        playlists.append(playlist)
     }
     
     // MARK: - Helpers
     
     func isHeader(item: Any) -> Bool {
-        return (item as? String) == "Library"
+        return item is String
     }
 }
 
@@ -33,11 +62,11 @@ extension PlaylistViewController: NSOutlineViewDataSource {
             return 1
         }
         
-        return strings.count
+        return playlists.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return true
+        return isHeader(item: item)
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
@@ -45,11 +74,45 @@ extension PlaylistViewController: NSOutlineViewDataSource {
             return "Library"
         }
         
-        return strings[index]
+        return playlists[index]
     }
     
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         return item
+    }
+    
+    // Drag behaviour
+    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+        
+        let canDrag = item is Playlist && index < 0
+        if canDrag {
+            return .move
+        }
+        
+        return []
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+        guard let playlist = item as? Playlist else { return false }
+        
+        let pb = info.draggingPasteboard()
+        let location = pb.string(forType: NSPasteboardTypeString)
+        
+        let realm = try! Realm()
+        if let location = location?.replacingOccurrences(of: "'", with: "\\'") {
+            if let song = realm.objects(Song.self).filter("location = '\(location)'").first {
+                let index = playlist.songs.index(of: song)
+                if index == nil {
+                    try! realm.write {
+                        playlist.songs.append(song)
+                        outlineView.reloadData()
+                    }
+                }
+                
+            }
+            return true
+        }
+        return false
     }
 }
 
@@ -60,7 +123,10 @@ extension PlaylistViewController: NSOutlineViewDelegate {
         }
         
         let view = outlineView.make(withIdentifier: "DataCell", owner: self) as? NSTableCellView
-        view?.textField?.stringValue = (item as? String)!
+        if let playlist = item as? Playlist {
+            view?.textField?.stringValue = "\(playlist.name) (\(playlist.songs.count))"
+        }
+        
         return view
     }
     
@@ -69,6 +135,6 @@ extension PlaylistViewController: NSOutlineViewDelegate {
     }
     
     func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
-        return isHeader(item: item)
+        return false
     }
 }

@@ -32,11 +32,11 @@
             <objects>
                 <viewController id="EMV-oV-ky8" userLabel="Playlist" customClass="PlaylistViewController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="4CP-0D-oex">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNI-g6-5Bf">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
+                                <rect key="frame" x="0.0" y="40" width="200" height="400"/>
                                 <clipView key="contentView" drawsBackground="NO" id="qlH-g7-XLD">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,12 +123,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fjJ-x9-5DM">
+                                <rect key="frame" x="87" y="1" width="111" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add playlist" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yFg-Ep-rr7">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="addPlaylist:" target="EMV-oV-ky8" id="uQr-Tc-w3u"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DNI-g6-5Bf" secondAttribute="trailing" id="D1J-hc-Ven"/>
                             <constraint firstItem="DNI-g6-5Bf" firstAttribute="leading" secondItem="4CP-0D-oex" secondAttribute="leading" id="HvQ-5S-tIx"/>
-                            <constraint firstAttribute="bottom" secondItem="DNI-g6-5Bf" secondAttribute="bottom" id="bd0-oW-8Nk"/>
+                            <constraint firstAttribute="bottom" secondItem="fjJ-x9-5DM" secondAttribute="bottom" constant="8" id="aSz-q0-WZE"/>
+                            <constraint firstAttribute="bottom" secondItem="DNI-g6-5Bf" secondAttribute="bottom" constant="40" id="bd0-oW-8Nk"/>
                             <constraint firstItem="DNI-g6-5Bf" firstAttribute="top" secondItem="4CP-0D-oex" secondAttribute="top" id="hBg-SW-zkt"/>
+                            <constraint firstAttribute="trailing" secondItem="fjJ-x9-5DM" secondAttribute="trailing" constant="8" id="kqc-Oc-Q35"/>
                         </constraints>
                     </view>
                     <connections>
@@ -137,7 +149,7 @@
                 </viewController>
                 <customObject id="IAZ-ar-yzQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="1391"/>
+            <point key="canvasLocation" x="544" y="1464"/>
         </scene>
         <!--SongList-->
         <scene sceneID="XCp-fB-U8f">
@@ -340,7 +352,7 @@
                 <customObject id="eb8-S0-wEl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="sgc-PR-lJa"/>
             </objects>
-            <point key="canvasLocation" x="914" y="1391"/>
+            <point key="canvasLocation" x="915" y="1444"/>
         </scene>
     </scenes>
     <resources>

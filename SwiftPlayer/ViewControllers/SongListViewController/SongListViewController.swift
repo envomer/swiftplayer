@@ -18,6 +18,8 @@ class SongListViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
+        tableView.dataSource = self
+        
         RealmMigrationManager.migrate()
         
         // Migrate only on first launch.
@@ -70,5 +72,15 @@ class SongListViewController: NSViewController {
             tableView.scrollRowToVisible(index)
         }
     }
-    
+}
+
+extension SongListViewController: NSTableViewDataSource {
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let song = songs[row]
+        print("dropped song", song)
+        
+        let pbItem = NSPasteboardItem()
+        pbItem.setString(song.location, forType: NSPasteboardTypeString)
+        return pbItem
+    }
 }

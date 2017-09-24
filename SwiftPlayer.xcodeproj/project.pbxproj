@@ -24,6 +24,7 @@
 		F6C285D61F781AE100C103BB /* MutableCollectionTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */; };
 		F6C285D81F782CB700C103BB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D71F782CB700C103BB /* Constants.swift */; };
 		F6C285DB1F78417E00C103BB /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */; };
+		F6C285DD1F78478400C103BB /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DC1F78478400C103BB /* Playlist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MutableCollectionTypeExtensions.swift; path = Extensions/MutableCollectionTypeExtensions.swift; sourceTree = "<group>"; };
 		F6C285D71F782CB700C103BB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Helpers/Constants.swift; sourceTree = "<group>"; };
 		F6C285DA1F78417E00C103BB /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaylistViewController.swift; path = ViewControllers/PlaylistViewController/PlaylistViewController.swift; sourceTree = "<group>"; };
+		F6C285DC1F78478400C103BB /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Models/Playlist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C285BD1F77C8DD00C103BB /* Song.swift */,
+				F6C285DC1F78478400C103BB /* Playlist.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */,
+				F6C285DD1F78478400C103BB /* Playlist.swift in Sources */,
 				F6C285D81F782CB700C103BB /* Constants.swift in Sources */,
 				F6C285C81F77E94E00C103BB /* SongManager.swift in Sources */,
 				F6C285C61F77E68C00C103BB /* PlayerManager.swift in Sources */,
