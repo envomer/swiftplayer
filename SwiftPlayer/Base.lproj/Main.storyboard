@@ -700,6 +700,30 @@
             </objects>
             <point key="canvasLocation" x="76" y="755"/>
         </scene>
+        <!--Status Item View Controller-->
+        <scene sceneID="lv2-Le-aPD">
+            <objects>
+                <viewController storyboardIdentifier="StatusItemViewController" id="UQ2-6N-Hnh" customClass="StatusItemViewController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NgJ-hK-c3G">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNE-59-2SQ">
+                                <rect key="frame" x="146" y="252" width="158" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="StatusItemViewController" id="754-6p-vb8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="VzW-xr-NUO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832" y="251"/>
+        </scene>
         <!--PlayerController-->
         <scene sceneID="HuO-gG-kOS">
             <objects>

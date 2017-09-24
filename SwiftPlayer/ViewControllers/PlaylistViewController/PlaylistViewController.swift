@@ -60,21 +60,14 @@ class PlaylistViewController: NSViewController {
         return item is String
     }
     
+    // delete playlist
     func deletePlaylist(sender: AnyObject) {
         print(outlineView.clickedRow)
         
-        let playlistsMutableArray = NSMutableArray(array: playlists)
-        let toBeDeletedPlaylist = playlistsMutableArray.object(at: outlineView.clickedRow - 1) as? Playlist
-        playlistsMutableArray.removeObject(at: outlineView.clickedRow - 1)
-        
-        if let mutableArray = playlistsMutableArray as AnyObject as? [Playlist] {
-            playlists = mutableArray
-            outlineView.reloadData()
-        }
-        
-        if let playlist = toBeDeletedPlaylist {
-            playlist.delete()
-        }
+        let playlist = playlists[outlineView.clickedRow - 1]
+        playlists.remove(at: outlineView.clickedRow - 1)
+        outlineView.reloadData()
+        playlist.delete()
         
     }
 }
