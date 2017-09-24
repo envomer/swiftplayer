@@ -23,11 +23,17 @@ class PlayerViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(
+            self,
+            selector: #selector(startPlaying),
+            name: Notification.Name(Constants.Notifications.StartPlaying),
+            object: nil
+        )
     }
     
     @IBAction func play(_ sender: NSButton) {
-        timeLabel.stringValue = "1:00"
-        
         manager.play()
         
         if manager.isPlaying {
@@ -51,5 +57,14 @@ class PlayerViewController: NSViewController {
     
     @IBAction func repeatPlaylist(_ sender: NSButton) {
         manager.isRepeated = !manager.isRepeated
+    }
+    
+    // MARK: - Helpers
+    
+    func startPlaying(notification: Notification) {
+        print("received", notification)
+        
+        guard let song = notification.userInfo?[Constants.NotificationUserInfos.Song] as? Song else { return }
+        timeLabel.stringValue = "0:00"
     }
 }

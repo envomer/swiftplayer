@@ -104,6 +104,14 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         print("playing", currentSong?.title)
         
         player?.play()
+        
+        NotificationCenter.default.post(
+            name: Notification.Name(Constants.Notifications.StartPlaying),
+            object: nil,
+            userInfo: [
+                Constants.NotificationUserInfos.Song: currentSong!
+            ]
+        )
     }
     
     func pause() {
