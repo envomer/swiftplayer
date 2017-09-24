@@ -15,6 +15,20 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
     var isPlaying: Bool = false
     var player: AVAudioPlayer?
     
+    var currentSong: Song? = nil
+    var isRepeated = false
+    var isShuffle = false
+    var volume: Float = 0.5
+    
+    // MARK: - Lifecycle methods    
+    override init() {
+        super.init()
+    }
+    
+    deinit {
+        
+    }
+    
     // MARK: - Player controls
     
     func play() {

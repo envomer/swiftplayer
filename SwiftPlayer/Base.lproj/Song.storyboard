@@ -138,7 +138,7 @@
         <!--SongList-->
         <scene sceneID="XCp-fB-U8f">
             <objects>
-                <viewController id="cam-E1-kLh" userLabel="SongList" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SongListViewController" id="cam-E1-kLh" userLabel="SongList" customClass="SongListViewController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Euz-ET-QQK">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -146,11 +146,11 @@
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDa-8q-7ue">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                                 <clipView key="contentView" id="g8V-No-UmP">
-                                    <rect key="frame" x="0.0" y="23" width="450" height="377"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="RDi-Zw-U3j" viewBased="YES" id="liI-6c-KEu">
-                                            <rect key="frame" x="0.0" y="0.0" width="458" height="377"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="377"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -255,7 +255,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="144" minWidth="10" maxWidth="3.4028234663852886e+38" id="ODR-Ei-Mno">
+                                                <tableColumn identifier="" width="136" minWidth="10" maxWidth="3.4028234663852886e+38" id="ODR-Ei-Mno">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="PLAY">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -269,11 +269,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="sGj-tY-nZM">
-                                                            <rect key="frame" x="312" y="1" width="144" height="17"/>
+                                                            <rect key="frame" x="312" y="1" width="136" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z71-J4-M3o">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5" id="amG-u7-i3b">
                                                                         <font key="font" metaFont="system"/>
@@ -292,7 +292,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="aLL-p7-D0M">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="aLL-p7-D0M">
                                     <rect key="frame" x="0.0" y="384" width="450" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -301,7 +301,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="RDi-Zw-U3j">
-                                    <rect key="frame" x="0.0" y="0.0" width="458" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>

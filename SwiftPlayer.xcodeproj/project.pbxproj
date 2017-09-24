@@ -16,6 +16,9 @@
 		F6C285C11F77CDEF00C103BB /* Song.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C285BF1F77CDEF00C103BB /* Song.storyboard */; };
 		F6C285C41F77E2FB00C103BB /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285C31F77E2FB00C103BB /* PlayerViewController.swift */; };
 		F6C285C61F77E68C00C103BB /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285C51F77E68C00C103BB /* PlayerManager.swift */; };
+		F6C285C81F77E94E00C103BB /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285C71F77E94E00C103BB /* SongManager.swift */; };
+		F6C285CA1F77EAB000C103BB /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */; };
+		F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285CC1F77F5C900C103BB /* SongListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		F6C285C01F77CDEF00C103BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Song.storyboard; sourceTree = "<group>"; };
 		F6C285C31F77E2FB00C103BB /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = ViewControllers/PlayerViewController/PlayerViewController.swift; sourceTree = "<group>"; };
 		F6C285C51F77E68C00C103BB /* PlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerManager.swift; path = Managers/PlayerManager.swift; sourceTree = "<group>"; };
+		F6C285C71F77E94E00C103BB /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongManager.swift; path = Managers/SongManager.swift; sourceTree = "<group>"; };
+		F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
+		F6C285CC1F77F5C900C103BB /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongListViewController.swift; path = ViewControllers/SongListViewController/SongListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C285CA1F77EAB000C103BB /* iTunesLibrary.framework in Frameworks */,
 				7F5EB24C3ECC1FEC57CD8E44 /* Pods_SwiftPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +56,7 @@
 		7FAF7B88D5E9DBDB7BD48E8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */,
 				0A438CCB9B82D19B0EA8A798 /* Pods_SwiftPlayer.framework */,
 			);
 			name = Frameworks;
@@ -117,6 +125,7 @@
 		F6C285B81F77C85100C103BB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6C285CB1F77F5A300C103BB /* SongListViewController */,
 				F6C285C21F77E2BD00C103BB /* PlayerViewController */,
 			);
 			name = ViewControllers;
@@ -126,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C285C51F77E68C00C103BB /* PlayerManager.swift */,
+				F6C285C71F77E94E00C103BB /* SongManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -143,6 +153,14 @@
 				F6C285C31F77E2FB00C103BB /* PlayerViewController.swift */,
 			);
 			name = PlayerViewController;
+			sourceTree = "<group>";
+		};
+		F6C285CB1F77F5A300C103BB /* SongListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F6C285CC1F77F5C900C103BB /* SongListViewController.swift */,
+			);
+			name = SongListViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +198,7 @@
 				TargetAttributes = {
 					F608FDD81F77C5FA0067C010 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4T64V8DJJ4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -276,6 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */,
+				F6C285C81F77E94E00C103BB /* SongManager.swift in Sources */,
 				F6C285C61F77E68C00C103BB /* PlayerManager.swift in Sources */,
 				F6C285BE1F77C8DD00C103BB /* Song.swift in Sources */,
 				F6C285C41F77E2FB00C103BB /* PlayerViewController.swift in Sources */,
@@ -403,11 +424,18 @@
 			baseConfigurationReference = 296200DB30399BF3A6ABABCA /* Pods-SwiftPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4T64V8DJJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = SwiftPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omtest.SwiftPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -417,11 +445,18 @@
 			baseConfigurationReference = B56ECFC7F7E905D45E1E4221 /* Pods-SwiftPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4T64V8DJJ4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = SwiftPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omtest.SwiftPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
