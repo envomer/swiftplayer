@@ -181,6 +181,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="Brc-Xa-434" name="value" keyPath="objectValue.title" id="rGr-xq-cfI"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -214,6 +217,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="hAe-jO-Ae0" name="value" keyPath="objectValue.lengthText" id="WCG-M1-GYk"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -289,6 +295,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="cam-E1-kLh" name="content" keyPath="self.songs" id="jPA-wH-ydJ"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -315,6 +324,7 @@
                     </view>
                 </viewController>
                 <customObject id="eb8-S0-wEl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="sgc-PR-lJa"/>
             </objects>
             <point key="canvasLocation" x="914" y="1391"/>
         </scene>
