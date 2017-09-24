@@ -20,6 +20,8 @@
 		F6C285CA1F77EAB000C103BB /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */; };
 		F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285CC1F77F5C900C103BB /* SongListViewController.swift */; };
 		F6C285D11F78008F00C103BB /* RealmMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D01F78008F00C103BB /* RealmMigrationManager.swift */; };
+		F6C285D41F781A5A00C103BB /* CollectionTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D31F781A5A00C103BB /* CollectionTypeExtensions.swift */; };
+		F6C285D61F781AE100C103BB /* MutableCollectionTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		F6C285C91F77EAB000C103BB /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
 		F6C285CC1F77F5C900C103BB /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongListViewController.swift; path = ViewControllers/SongListViewController/SongListViewController.swift; sourceTree = "<group>"; };
 		F6C285D01F78008F00C103BB /* RealmMigrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationManager.swift; sourceTree = "<group>"; };
+		F6C285D31F781A5A00C103BB /* CollectionTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTypeExtensions.swift; path = Extensions/CollectionTypeExtensions.swift; sourceTree = "<group>"; };
+		F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MutableCollectionTypeExtensions.swift; path = Extensions/MutableCollectionTypeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		F608FDDB1F77C5FA0067C010 /* SwiftPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				F6C285D21F781A2200C103BB /* Extensions */,
 				F6C285BA1F77C87000C103BB /* Helpers */,
 				F6C285B91F77C86A00C103BB /* Managers */,
 				F6C285B51F77C81000C103BB /* Models */,
@@ -164,6 +169,15 @@
 				F6C285CC1F77F5C900C103BB /* SongListViewController.swift */,
 			);
 			name = SongListViewController;
+			sourceTree = "<group>";
+		};
+		F6C285D21F781A2200C103BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F6C285D31F781A5A00C103BB /* CollectionTypeExtensions.swift */,
+				F6C285D51F781AE100C103BB /* MutableCollectionTypeExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,8 +315,10 @@
 				F6C285CD1F77F5C900C103BB /* SongListViewController.swift in Sources */,
 				F6C285C81F77E94E00C103BB /* SongManager.swift in Sources */,
 				F6C285C61F77E68C00C103BB /* PlayerManager.swift in Sources */,
+				F6C285D41F781A5A00C103BB /* CollectionTypeExtensions.swift in Sources */,
 				F6C285BE1F77C8DD00C103BB /* Song.swift in Sources */,
 				F6C285D11F78008F00C103BB /* RealmMigrationManager.swift in Sources */,
+				F6C285D61F781AE100C103BB /* MutableCollectionTypeExtensions.swift in Sources */,
 				F6C285C41F77E2FB00C103BB /* PlayerViewController.swift in Sources */,
 				F608FDDF1F77C5FA0067C010 /* ViewController.swift in Sources */,
 				F608FDDD1F77C5FA0067C010 /* AppDelegate.swift in Sources */,

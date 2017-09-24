@@ -29,6 +29,12 @@ class PlayerViewController: NSViewController {
         timeLabel.stringValue = "1:00"
         
         manager.play()
+        
+        if manager.isPlaying {
+            playButton.image =  NSImage(named: "Pause")
+        } else {
+            playButton.image = NSImage(named: "Play")
+        }
     }
     
     @IBAction func rewind(_ sender: NSButton) {
@@ -40,10 +46,10 @@ class PlayerViewController: NSViewController {
     }
     
     @IBAction func shuffle(_ sender: NSButton) {
-        manager.shuffle()
+        manager.isShuffle = !manager.isShuffle
     }
     
     @IBAction func repeatPlaylist(_ sender: NSButton) {
-        manager.repeatPlaylist()
+        manager.isRepeated = !manager.isRepeated
     }
 }

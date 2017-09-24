@@ -10,6 +10,7 @@ import Cocoa
 import RealmSwift
 
 class SongListViewController: NSViewController {
+    @IBOutlet weak var tableView: NSTableView!
     
     dynamic var songs: [Song] = []
 
@@ -32,6 +33,19 @@ class SongListViewController: NSViewController {
         
         songs = result.map{song in
             return song
+        }
+    }
+    
+    @IBAction func doubleClick(_ sender: NSTableView) {
+        print(tableView.selectedRow)
+        
+        if tableView.selectedRow > -1 {
+            let manager = PlayerManager.sharedManager
+            manager.currentPlaylist = songs
+            manager.currentSong = songs[tableView.selectedRow]
+            manager.isShuffle = manager.isShuffle ? true : false
+            manager.stop()
+            manager.play()
         }
     }
     
