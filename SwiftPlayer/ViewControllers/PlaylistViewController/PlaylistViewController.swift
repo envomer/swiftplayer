@@ -92,6 +92,7 @@ extension PlaylistViewController: NSOutlineViewDataSource {
         return []
     }
     
+    // Drop behaviour
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
         guard let playlist = item as? Playlist else { return false }
         
@@ -136,5 +137,19 @@ extension PlaylistViewController: NSOutlineViewDelegate {
     
     func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
         return false
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        let playlist = playlists[outlineView.selectedRow - 1]
+        
+        let nc = NotificationCenter.default
+        
+        nc.post(
+            name: Notification.Name(Constants.Notifications.SwitchPlaylist),
+            object: self,
+            userInfo: [
+                Constants.NotificationUserInfos.Playlist: playlist
+            ]
+        )
     }
 }

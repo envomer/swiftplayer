@@ -45,6 +45,13 @@ class SongListViewController: NSViewController {
             name: Notification.Name(Constants.Notifications.ChangeSong),
             object: nil
         )
+        
+        nc.addObserver(
+            self,
+            selector: #selector(switchPlaylist),
+            name: Notification.Name(Constants.Notifications.SwitchPlaylist),
+            object: nil
+        )
     }
     
     @IBAction func doubleClick(_ sender: NSTableView) {
@@ -71,6 +78,13 @@ class SongListViewController: NSViewController {
             tableView.selectRowIndexes(set, byExtendingSelection: false)
             tableView.scrollRowToVisible(index)
         }
+    }
+    
+    func switchPlaylist(notification: Notification) {
+        guard let playlist = notification.userInfo?[Constants.NotificationUserInfos.Playlist] as? Playlist else { return }
+        
+        songs = playlist.songs.map { song in return song }
+        tableView.reloadData()
     }
 }
 
