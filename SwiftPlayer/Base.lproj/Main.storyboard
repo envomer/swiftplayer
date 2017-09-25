@@ -711,7 +711,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="sEK-Zi-ELu">
                                 <rect key="frame" x="0.0" y="0.0" width="339" height="96"/>
                                 <subviews>
-                                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="NoH-Pa-Trq">
+                                    <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="inactive" translatesAutoresizingMaskIntoConstraints="NO" id="NoH-Pa-Trq">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="96"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-So-Qm7" userLabel="Volume">
@@ -735,8 +735,9 @@
                                                     <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
                                             </stackView>
-                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QuY-tE-XDy" userLabel="PlayControls">
-                                                <rect key="frame" x="20" y="46" width="200" height="30"/>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QuY-tE-XDy" userLabel="PlayControls">
+                                                <rect key="frame" x="20" y="46" width="134" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <subviews>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="tCm-NS-PP2">
                                                         <rect key="frame" x="0.0" y="7" width="16" height="16"/>
@@ -795,7 +796,7 @@
                                                         </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="95T-Nb-iaD">
-                                                        <rect key="frame" x="-35800" y="7" width="36000" height="16"/>
+                                                        <rect key="frame" x="118" y="7" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="Bmi-oB-HG6"/>
                                                             <constraint firstAttribute="width" constant="16" id="lpz-8v-Pca"/>
@@ -809,9 +810,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="DVR-c5-1sc"/>
-                                                </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
@@ -868,8 +866,6 @@
                                             <constraint firstItem="QDD-So-Qm7" firstAttribute="top" secondItem="NoH-Pa-Trq" secondAttribute="top" constant="10" id="Lv9-Mt-Djk"/>
                                             <constraint firstItem="atv-Xc-5RR" firstAttribute="leading" secondItem="NoH-Pa-Trq" secondAttribute="leading" constant="20" id="Rpg-RT-IRI"/>
                                             <constraint firstAttribute="bottom" secondItem="atv-Xc-5RR" secondAttribute="bottom" constant="20" id="cDe-e8-7d1"/>
-                                            <constraint firstItem="QuY-tE-XDy" firstAttribute="leading" secondItem="NoH-Pa-Trq" secondAttribute="leading" constant="20" id="nU9-My-I13"/>
-                                            <constraint firstItem="QuY-tE-XDy" firstAttribute="top" secondItem="NoH-Pa-Trq" secondAttribute="top" constant="20" id="ohE-EJ-qaq"/>
                                             <constraint firstAttribute="bottom" secondItem="QDD-So-Qm7" secondAttribute="bottom" constant="10" id="q4a-Sz-FcP"/>
                                             <constraint firstAttribute="trailing" secondItem="QDD-So-Qm7" secondAttribute="trailing" constant="20" id="x9e-DT-xAb"/>
                                         </constraints>
