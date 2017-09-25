@@ -14,7 +14,7 @@
                         <splitViewItem id="EiP-8P-Ndm"/>
                         <splitViewItem id="7Y7-Z7-upe"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="UDX-ii-fif">
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="UDX-ii-fif" customClass="BorderlessSplitView" customModule="SwiftPlayer" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -43,13 +43,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="220" height="440"/>
                                 <subviews>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNI-g6-5Bf">
-                                        <rect key="frame" x="10" y="0.0" width="200" height="420"/>
+                                        <rect key="frame" x="10" y="0.0" width="200" height="410"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="qlH-g7-XLD" customClass="CustomClipView" customModule="SwiftPlayer" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="420"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="410"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="pGu-Cz-gXX" id="fRb-CG-Au9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="420"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="410"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="0.0"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -148,7 +148,7 @@
                                     <constraint firstItem="DNI-g6-5Bf" firstAttribute="leading" secondItem="OYX-bN-dXT" secondAttribute="leading" constant="10" id="XS6-B9-aN5"/>
                                     <constraint firstAttribute="bottom" secondItem="DNI-g6-5Bf" secondAttribute="bottom" id="Yiz-Vc-yhb"/>
                                     <constraint firstAttribute="trailing" secondItem="DNI-g6-5Bf" secondAttribute="trailing" constant="10" id="by7-dT-94f"/>
-                                    <constraint firstItem="DNI-g6-5Bf" firstAttribute="top" secondItem="OYX-bN-dXT" secondAttribute="top" constant="20" id="ggM-20-z2l"/>
+                                    <constraint firstItem="DNI-g6-5Bf" firstAttribute="top" secondItem="OYX-bN-dXT" secondAttribute="top" constant="30" id="ggM-20-z2l"/>
                                 </constraints>
                             </visualEffectView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fjJ-x9-5DM">
@@ -177,7 +177,7 @@
                 </viewController>
                 <customObject id="IAZ-ar-yzQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="544" y="1464"/>
+            <point key="canvasLocation" x="544" y="1473"/>
         </scene>
         <!--SongList-->
         <scene sceneID="XCp-fB-U8f">
@@ -391,7 +391,7 @@
                 <customObject id="eb8-S0-wEl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="sgc-PR-lJa"/>
             </objects>
-            <point key="canvasLocation" x="915" y="1444"/>
+            <point key="canvasLocation" x="916" y="1453"/>
         </scene>
     </scenes>
     <resources>
