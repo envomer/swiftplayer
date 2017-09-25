@@ -28,8 +28,7 @@ class PlayerViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        
-        
+        // Some notification observations
         let nc = NotificationCenter.default
         nc.addObserver(
             self,

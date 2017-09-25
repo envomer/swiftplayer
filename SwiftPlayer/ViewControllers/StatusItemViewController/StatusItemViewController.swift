@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class StatusItemViewController: NSViewController {
+class StatusItemViewController: PlayerViewController {
     
     //
     class func loadFromNib() -> StatusItemViewController {
