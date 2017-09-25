@@ -28,6 +28,8 @@
 		F6C285DF1F785B7900C103BB /* CustomTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285DE1F785B7900C103BB /* CustomTableCellView.swift */; };
 		F6C285E11F786A8900C103BB /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285E01F786A8900C103BB /* EventMonitor.swift */; };
 		F6C285E41F78715A00C103BB /* StatusItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285E31F78715A00C103BB /* StatusItemViewController.swift */; };
+		F6C285E71F7894FF00C103BB /* CustomTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285E61F7894FF00C103BB /* CustomTableHeaderView.swift */; };
+		F6C285E91F7898EC00C103BB /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C285E81F7898EC00C103BB /* CustomSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		F6C285DE1F785B7900C103BB /* CustomTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableCellView.swift; path = ViewControllers/PlaylistViewController/CustomTableCellView.swift; sourceTree = "<group>"; };
 		F6C285E01F786A8900C103BB /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMonitor.swift; path = Helpers/EventMonitor.swift; sourceTree = "<group>"; };
 		F6C285E31F78715A00C103BB /* StatusItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusItemViewController.swift; path = ViewControllers/StatusItemViewController/StatusItemViewController.swift; sourceTree = "<group>"; };
+		F6C285E61F7894FF00C103BB /* CustomTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTableHeaderView.swift; path = Views/Headers/CustomTableHeaderView.swift; sourceTree = "<group>"; };
+		F6C285E81F7898EC00C103BB /* CustomSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSplitViewController.swift; path = Views/Headers/CustomSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 		F6C285B71F77C83800C103BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F6C285E51F7894B800C103BB /* Headers */,
 				F608FDE21F77C5FA0067C010 /* Main.storyboard */,
 				F6C285BF1F77CDEF00C103BB /* Song.storyboard */,
 			);
@@ -212,6 +217,15 @@
 				F6C285E31F78715A00C103BB /* StatusItemViewController.swift */,
 			);
 			name = StatusItemViewController;
+			sourceTree = "<group>";
+		};
+		F6C285E51F7894B800C103BB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				F6C285E61F7894FF00C103BB /* CustomTableHeaderView.swift */,
+				F6C285E81F7898EC00C103BB /* CustomSplitViewController.swift */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,7 +368,9 @@
 				F6C285C61F77E68C00C103BB /* PlayerManager.swift in Sources */,
 				F6C285E11F786A8900C103BB /* EventMonitor.swift in Sources */,
 				F6C285D41F781A5A00C103BB /* CollectionTypeExtensions.swift in Sources */,
+				F6C285E71F7894FF00C103BB /* CustomTableHeaderView.swift in Sources */,
 				F6C285BE1F77C8DD00C103BB /* Song.swift in Sources */,
+				F6C285E91F7898EC00C103BB /* CustomSplitViewController.swift in Sources */,
 				F6C285D11F78008F00C103BB /* RealmMigrationManager.swift in Sources */,
 				F6C285D61F781AE100C103BB /* MutableCollectionTypeExtensions.swift in Sources */,
 				F6C285E41F78715A00C103BB /* StatusItemViewController.swift in Sources */,
