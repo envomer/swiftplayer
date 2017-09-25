@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="dHy-Sl-Jvb">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="dHy-Sl-Jvb">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,8 +17,12 @@
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="UDX-ii-fif">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="dHy-Sl-Jvb" id="TGM-pZ-5f2"/>
+                        </connections>
                     </splitView>
                     <connections>
+                        <outlet property="splitView" destination="UDX-ii-fif" id="ohC-6h-URV"/>
                         <segue destination="EMV-oV-ky8" kind="relationship" relationship="splitItems" id="trF-Ra-w2G"/>
                         <segue destination="cam-E1-kLh" kind="relationship" relationship="splitItems" id="uz4-Xd-Ka0"/>
                     </connections>
@@ -31,27 +35,27 @@
         <scene sceneID="eJD-nZ-jSF">
             <objects>
                 <viewController id="EMV-oV-ky8" userLabel="Playlist" customClass="PlaylistViewController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="4CP-0D-oex">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
+                    <view key="view" misplaced="YES" id="4CP-0D-oex">
+                        <rect key="frame" x="0.0" y="0.0" width="210" height="440"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="OYX-bN-dXT">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
+                                <rect key="frame" x="0.0" y="0.0" width="220" height="440"/>
                                 <subviews>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNI-g6-5Bf">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
-                                        <clipView key="contentView" drawsBackground="NO" id="qlH-g7-XLD">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
+                                        <rect key="frame" x="10" y="0.0" width="200" height="420"/>
+                                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="qlH-g7-XLD" customClass="CustomClipView" customModule="SwiftPlayer" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="420"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="14" outlineTableColumn="pGu-Cz-gXX" id="fRb-CG-Au9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="440"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="420"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="0.0"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="197" minWidth="16" maxWidth="1000" id="pGu-Cz-gXX">
+                                                        <tableColumn identifier="" width="197" minWidth="16" maxWidth="1000" id="pGu-Cz-gXX">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -68,7 +72,7 @@
                                                                     <rect key="frame" x="1" y="0.0" width="197" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUh-q4-5Jo">
+                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cUh-q4-5Jo">
                                                                             <rect key="frame" x="0.0" y="1" width="197" height="14"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Libray" id="GK2-cr-rTx">
@@ -91,7 +95,7 @@
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="Music" id="pob-eh-V5R"/>
                                                                         </imageView>
-                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7js-d8-raM">
+                                                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7js-d8-raM">
                                                                             <rect key="frame" x="25" y="0.0" width="144" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Songs" id="iZf-Fo-jbN">
@@ -100,8 +104,8 @@
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                         </textField>
-                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfN-yk-TJK">
-                                                                            <rect key="frame" x="176" y="2" width="18" height="13"/>
+                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BfN-yk-TJK">
+                                                                            <rect key="frame" x="175" y="2" width="19" height="13"/>
                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(0)" id="Xsc-BD-DUM">
                                                                                 <font key="font" metaFont="system" size="10"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -124,7 +128,7 @@
                                                     </tableColumns>
                                                 </outlineView>
                                             </subviews>
-                                            <nil key="backgroundColor"/>
+                                            <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="Jlt-E8-gWD"/>
@@ -141,14 +145,14 @@
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="DNI-g6-5Bf" firstAttribute="leading" secondItem="OYX-bN-dXT" secondAttribute="leading" id="XS6-B9-aN5"/>
+                                    <constraint firstItem="DNI-g6-5Bf" firstAttribute="leading" secondItem="OYX-bN-dXT" secondAttribute="leading" constant="10" id="XS6-B9-aN5"/>
                                     <constraint firstAttribute="bottom" secondItem="DNI-g6-5Bf" secondAttribute="bottom" id="Yiz-Vc-yhb"/>
-                                    <constraint firstAttribute="trailing" secondItem="DNI-g6-5Bf" secondAttribute="trailing" id="by7-dT-94f"/>
-                                    <constraint firstItem="DNI-g6-5Bf" firstAttribute="top" secondItem="OYX-bN-dXT" secondAttribute="top" id="ggM-20-z2l"/>
+                                    <constraint firstAttribute="trailing" secondItem="DNI-g6-5Bf" secondAttribute="trailing" constant="10" id="by7-dT-94f"/>
+                                    <constraint firstItem="DNI-g6-5Bf" firstAttribute="top" secondItem="OYX-bN-dXT" secondAttribute="top" constant="20" id="ggM-20-z2l"/>
                                 </constraints>
                             </visualEffectView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fjJ-x9-5DM">
-                                <rect key="frame" x="110" y="2" width="87" height="28"/>
+                                <rect key="frame" x="130" y="2" width="87" height="28"/>
                                 <buttonCell key="cell" type="push" title="Add playlist" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" inset="2" id="yFg-Ep-rr7">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
@@ -199,7 +203,7 @@
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="262" minWidth="40" maxWidth="1000" id="Fk4-79-IVh">
+                                                        <tableColumn identifier="" width="262" minWidth="40" maxWidth="1000" id="Fk4-79-IVh">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="NAME">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -216,7 +220,7 @@
                                                                     <rect key="frame" x="1" y="1" width="262" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efh-Ik-UvD">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efh-Ik-UvD">
                                                                             <rect key="frame" x="0.0" y="0.0" width="262" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Song name" id="fk6-lm-fsB">
@@ -235,7 +239,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn width="57" minWidth="40" maxWidth="1000" id="vw8-tr-Pgr">
+                                                        <tableColumn identifier="" width="57" minWidth="40" maxWidth="1000" id="vw8-tr-Pgr">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="LENGTH">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -252,7 +256,7 @@
                                                                     <rect key="frame" x="266" y="1" width="57" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU0-La-kBZ">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iU0-La-kBZ">
                                                                             <rect key="frame" x="0.0" y="0.0" width="57" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="2:35" id="1v9-PU-dK0">
@@ -288,7 +292,7 @@
                                                                     <rect key="frame" x="326" y="1" width="74" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW2-uH-Ndk">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bW2-uH-Ndk">
                                                                             <rect key="frame" x="0.0" y="0.0" width="74" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Omer" id="irD-al-oxt">
@@ -324,7 +328,7 @@
                                                                     <rect key="frame" x="403" y="1" width="39" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z71-J4-M3o">
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z71-J4-M3o">
                                                                             <rect key="frame" x="0.0" y="0.0" width="39" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="5" id="amG-u7-i3b">

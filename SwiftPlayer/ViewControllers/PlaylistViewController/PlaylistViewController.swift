@@ -18,13 +18,14 @@ class PlaylistViewController: NSViewController {
     }
     
     @IBOutlet weak var outlineView: NSOutlineView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
         outlineView.dataSource = self
         outlineView.delegate = self
+        outlineView.backgroundColor = NSColor.clear
         
         RealmMigrationManager.migrate()
         
@@ -32,6 +33,16 @@ class PlaylistViewController: NSViewController {
         playlists = realm.objects(Playlist.self).map {playlist in
             return playlist
         }
+        
+        let songsAll = realm.objects(Song.self).map{song in
+            return song
+        }
+        
+        let playlistAllSongs = Playlist()
+//        playlistAllSongs.dynamite = true
+        playlistAllSongs.name = "All songs"
+        playlistAllSongs.songs.append(objectsIn: songsAll)
+        playlists.insert(playlistAllSongs, at: 0)
         
         outlineView.register(forDraggedTypes: [NSPasteboardTypeString])
         
@@ -73,6 +84,7 @@ class PlaylistViewController: NSViewController {
 }
 
 extension PlaylistViewController: NSOutlineViewDataSource {
+    // ??
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if item == nil {
             return 1
@@ -81,18 +93,22 @@ extension PlaylistViewController: NSOutlineViewDataSource {
         return playlists.count
     }
     
+    //??
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         return isHeader(item: item)
     }
     
+    //??
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if item == nil {
+            //            return ["All", "Library"]
             return "Library"
         }
         
         return playlists[index]
     }
     
+    //??
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         return item
     }
@@ -189,3 +205,4 @@ extension PlaylistViewController: NSTextFieldDelegate {
     }
     
 }
+

@@ -699,8 +699,8 @@
                     </splitView>
                     <connections>
                         <outlet property="splitView" destination="uE8-nH-GeO" id="3x9-1A-gdU"/>
-                        <segue destination="9d0-Np-yxn" kind="relationship" relationship="splitItems" id="bpF-mi-f1L"/>
                         <segue destination="efq-Z5-fGv" kind="relationship" relationship="splitItems" id="gsf-QM-Fhz"/>
+                        <segue destination="9d0-Np-yxn" kind="relationship" relationship="splitItems" id="bpF-mi-f1L"/>
                     </connections>
                 </splitViewController>
                 <customObject id="76I-RD-uyf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
