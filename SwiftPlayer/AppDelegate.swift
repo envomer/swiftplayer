@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import MediaKeyTap
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,11 +16,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     var eventMonitor: EventMonitor?
+    var mediaKeyTap: MediaKeyTap?
+    var manager: PlayerManager?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
         statusItem.title = ""
+        manager = PlayerManager.sharedManager
         
         if let button = statusItem.button {
             button.image = NSImage(named: "Star")
@@ -33,6 +38,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(sender: event)
             }
         })
+        
+        mediaKeyTap = MediaKeyTap(delegate: self)
+        mediaKeyTap?.start()
+        
+//        GlobalHotKey.register()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -65,3 +75,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+extension AppDelegate: MediaKeyTapDelegate {
+    func handle(mediaKey: MediaKey, event: KeyEvent) {
+        switch mediaKey {
+        case .playPause:
+            print("Play/pause pressed")
+            manager?.play()
+        case .previous:
+            print("Previous pressed")
+            manager?.rewind()
+        case .rewind:
+            print("Rewind pressed")
+            manager?.rewind()
+        case .next:
+            print("Next pressed")
+            manager?.next()
+        case .fastForward:
+            print("Fast Forward pressed")
+            manager?.next()
+        }
+    }
+}

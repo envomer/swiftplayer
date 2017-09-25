@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -664,12 +664,15 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="MainWindowController" id="B8D-0N-5wS" customClass="MainWindowController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="SwiftPlayer by Omer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="Z8Z-bl-pl2"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="qBK-eO-Kpv" kind="relationship" relationship="window.shadowedContentViewController" id="9R0-UM-kHM"/>
@@ -679,10 +682,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Custom Split View Controller-->
         <scene sceneID="IqP-uA-sJb">
             <objects>
-                <splitViewController id="qBK-eO-Kpv" sceneMemberID="viewController">
+                <splitViewController id="qBK-eO-Kpv" customClass="CustomSplitViewController" customModule="SwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="EcU-CE-6pT"/>
                         <splitViewItem id="ozh-yi-PO1"/>
@@ -690,8 +693,12 @@
                     <splitView key="splitView" dividerStyle="thin" id="uE8-nH-GeO">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="qBK-eO-Kpv" id="QqV-To-Kzy"/>
+                        </connections>
                     </splitView>
                     <connections>
+                        <outlet property="splitView" destination="uE8-nH-GeO" id="3x9-1A-gdU"/>
                         <segue destination="9d0-Np-yxn" kind="relationship" relationship="splitItems" id="bpF-mi-f1L"/>
                         <segue destination="efq-Z5-fGv" kind="relationship" relationship="splitItems" id="gsf-QM-Fhz"/>
                     </connections>
@@ -719,7 +726,10 @@
                                                 <subviews>
                                                     <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4YT-ke-Vtc">
                                                         <rect key="frame" x="1" y="21" width="13" height="55"/>
-                                                        <sliderCell key="cell" controlSize="mini" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="rxp-ni-8kZ"/>
+                                                        <sliderCell key="cell" controlSize="mini" continuous="YES" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="right" sliderType="linear" id="rxp-ni-8kZ"/>
+                                                        <connections>
+                                                            <action selector="slideVolume:" target="UQ2-6N-Hnh" id="bJX-6R-7z1"/>
+                                                        </connections>
                                                     </slider>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gjf-Fb-0sZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
@@ -828,7 +838,7 @@
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atv-Xc-5RR" userLabel="SongInformation">
                                                 <rect key="frame" x="20" y="20" width="245" height="17"/>
                                                 <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8k-Th-d8c">
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s8k-Th-d8c">
                                                         <rect key="frame" x="-2" y="0.0" width="44" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Brf-gO-8C4"/>
@@ -840,7 +850,7 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIk-Sl-E6Y" userLabel="SongTitle Label">
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mIk-Sl-E6Y" userLabel="SongTitle Label">
                                                         <rect key="frame" x="43" y="2" width="204" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="JBJ-ti-zWY"/>
@@ -925,7 +935,10 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="8hh-4S-BBM"/>
                                                 </constraints>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="p1g-uO-1QR"/>
+                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.35537462349397592" tickMarkPosition="above" sliderType="linear" id="p1g-uO-1QR"/>
+                                                <connections>
+                                                    <action selector="slideVolume:" target="9d0-Np-yxn" id="Uh3-t8-IBv"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <constraints>
@@ -1032,7 +1045,7 @@
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N0J-dK-VZ2" userLabel="SongInformation">
                                         <rect key="frame" x="20" y="12" width="245" height="18"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-NG-Lxd">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-NG-Lxd">
                                                 <rect key="frame" x="-2" y="0.5" width="44" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="hB0-41-ZR1"/>
@@ -1043,7 +1056,7 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mC3-NA-x2x" userLabel="SongTitle Label">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mC3-NA-x2x" userLabel="SongTitle Label">
                                                 <rect key="frame" x="43" y="2.5" width="204" height="13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="cmw-Vf-QJO"/>
@@ -1103,7 +1116,7 @@
                 </viewController>
                 <customObject id="3l2-Cr-vuZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="683"/>
+            <point key="canvasLocation" x="847" y="832"/>
         </scene>
         <!--Song-->
         <scene sceneID="BCx-8f-BtB">
@@ -1111,7 +1124,7 @@
                 <controllerPlaceholder storyboardName="Song" id="efq-Z5-fGv" sceneMemberID="viewController"/>
                 <customObject id="NpJ-7G-pGS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="891"/>
+            <point key="canvasLocation" x="567" y="597"/>
         </scene>
     </scenes>
     <resources>

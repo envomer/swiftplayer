@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'SwiftPlayer' do
  pod 'RealmSwift'
+ pod 'MediaKeyTap'
 end

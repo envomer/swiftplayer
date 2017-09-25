@@ -72,6 +72,10 @@ class PlayerViewController: NSViewController {
         manager.isRepeated = !manager.isRepeated
     }
     
+    @IBAction func slideVolume(_ sender: NSSlider) {
+        manager.volume = sender.floatValue
+    }
+    
     // MARK: - Helpers
     
     func startPlaying(notification: Notification) {
@@ -111,8 +115,13 @@ class PlayerViewController: NSViewController {
     // MARK: - Timer
     
     func updateProgress(value: Double) {
-        songProgress += 1
-        formatTimeLabel()
+        
+        if !(manager.player?.duration.isLessThanOrEqualTo(songProgress))! {
+            songProgress += 1
+            formatTimeLabel()
+        } else {
+            manager.next()
+        }
     }
     
     func formatTimeLabel() {

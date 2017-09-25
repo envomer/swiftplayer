@@ -1,17 +1,20 @@
 PODS:
-  - Realm (2.2.0):
-    - Realm/Headers (= 2.2.0)
-  - Realm/Headers (2.2.0)
-  - RealmSwift (2.2.0):
-    - Realm (= 2.2.0)
+  - MediaKeyTap (1.0.0)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - RealmSwift (2.10.1):
+    - Realm (= 2.10.1)
 
 DEPENDENCIES:
+  - MediaKeyTap
   - RealmSwift
 
 SPEC CHECKSUMS:
-  Realm: d95b8fb34c83f1e764b66d319277a62c2b6e4bf5
-  RealmSwift: a4fa52d06e946a32ec746b3388374f742e6b8731
+  MediaKeyTap: 92764246d2ce8bf4446c2457e8b180e0b88926a1
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
 
-PODFILE CHECKSUM: 43878ff9733d6dfa3fdee6d4d4b1bf3ab2bc2e26
+PODFILE CHECKSUM: 118c400a162dadf99156acf1a8803d61182aa77a
 
 COCOAPODS: 1.3.1

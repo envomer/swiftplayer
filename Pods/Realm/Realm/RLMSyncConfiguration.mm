@@ -20,6 +20,7 @@
 
 #import "RLMSyncManager_Private.h"
 #import "RLMSyncSession_Private.hpp"
+#import "RLMSyncSessionRefreshHandle.hpp"
 #import "RLMSyncUser_Private.hpp"
 #import "RLMSyncUtil_Private.hpp"
 #import "RLMUtil.hpp"
@@ -35,7 +36,11 @@ namespace {
 using ProtocolError = realm::sync::ProtocolError;
 
 RLMSyncSystemErrorKind errorKindForSyncError(SyncError error) {
-    if (error.error_code == ProtocolError::bad_authentication) {
+    if (error.is_client_reset_requested()) {
+        return RLMSyncSystemErrorKindClientReset;
+    } else if (error.error_code == ProtocolError::permission_denied) {
+        return RLMSyncSystemErrorKindPermissionDenied;
+    } else if (error.error_code == ProtocolError::bad_authentication) {
         return RLMSyncSystemErrorKindUser;
     } else if (error.is_session_level_protocol_error()) {
         return RLMSyncSystemErrorKindSession;
@@ -89,6 +94,14 @@ static BOOL isValidRealmURL(NSURL *url) {
         && self.stopPolicy == that.stopPolicy;
 }
 
+- (void)setEnableSSLValidation:(BOOL)enableSSLValidation {
+    _config->client_validate_ssl = (bool)enableSSLValidation;
+}
+
+- (BOOL)enableSSLValidation {
+    return (BOOL)_config->client_validate_ssl;
+}
+
 - (realm::SyncConfig)rawConfiguration {
     return *_config;
 }
@@ -127,24 +140,33 @@ static BOOL isValidRealmURL(NSURL *url) {
         if (!isValidRealmURL(url)) {
             @throw RLMException(@"The provided URL (%@) was not a valid Realm URL.", [url absoluteString]);
         }
-        auto bindHandler = [=](const std::string& path,
-                              const SyncConfig& config,
-                              const std::shared_ptr<SyncSession>& session) {
-            [user _bindSessionWithPath:path
-                                config:config
-                               session:session
-                            completion:[RLMSyncManager sharedManager].sessionCompletionNotifier
-                          isStandalone:NO];
+        auto bindHandler = [=](auto&,
+                               const SyncConfig& config,
+                               const std::shared_ptr<SyncSession>& session) {
+            const std::shared_ptr<SyncUser>& user = config.user;
+            NSURL *realmURL = [NSURL URLWithString:@(config.realm_url.c_str())];
+            NSString *path = [realmURL path];
+            REALM_ASSERT(realmURL && path);
+            RLMSyncSessionRefreshHandle *handle = [[RLMSyncSessionRefreshHandle alloc] initWithRealmURL:realmURL
+                                                                                                   user:user
+                                                                                                session:std::move(session)
+                                                                                        completionBlock:[RLMSyncManager sharedManager].sessionCompletionNotifier];
+            context_for(user).register_refresh_handle([path UTF8String], handle);
         };
         if (!errorHandler) {
             errorHandler = [=](std::shared_ptr<SyncSession> errored_session,
                                SyncError error) {
                 RLMSyncSession *session = [[RLMSyncSession alloc] initWithSyncSession:errored_session];
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:error.user_info.size()];
+                for (auto& pair : error.user_info) {
+                    userInfo[@(pair.first.c_str())] = @(pair.second.c_str());
+                }
                 // FIXME: how should the binding respond if the `is_fatal` bool is true?
                 [[RLMSyncManager sharedManager] _fireErrorWithCode:error.error_code.value()
                                                            message:@(error.message.c_str())
                                                            isFatal:error.is_fatal
                                                            session:session
+                                                          userInfo:userInfo
                                                         errorClass:errorKindForSyncError(error)];
             };
         }
@@ -156,6 +178,9 @@ static BOOL isValidRealmURL(NSURL *url) {
             std::move(bindHandler),
             std::move(errorHandler)
         });
+        if (NSNumber *disabled = [[RLMSyncManager sharedManager] globalSSLValidationDisabled]) {
+            _config->client_validate_ssl = ![disabled boolValue];
+        }
         self.customFileURL = customFileURL;
         return self;
     }
